@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
-var http_1 = require("@angular/http");
 var platform_browser_1 = require("@angular/platform-browser");
+var registration_component_1 = require("../../Scripts/App/registration/registration.component");
 var app_component_1 = require("./app.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -19,17 +19,21 @@ var AppModule = /** @class */ (function () {
             imports: [
                 //angular builtin module
                 platform_browser_1.BrowserModule,
-                http_1.HttpModule,
-                forms_1.FormsModule
+                //HttpModule,
+                forms_1.FormsModule,
+                forms_1.ReactiveFormsModule
             ],
             declarations: [
-                app_component_1.AppComponent
+                app_component_1.AppComponent,
+                registration_component_1.RegistrationComponent
             ],
+            exports: [registration_component_1.RegistrationComponent],
             providers: [
             //register services here
             ],
             bootstrap: [
-                app_component_1.AppComponent
+                app_component_1.AppComponent,
+                registration_component_1.RegistrationComponent
             ]
         })
     ], AppModule);

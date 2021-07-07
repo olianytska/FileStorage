@@ -9,10 +9,6 @@ namespace PL.Models
     public class RegisterModel
     {
         [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
-        [Required]
         [StringLength(30, ErrorMessage = "The value {0} must contain at least {2} characters.", MinimumLength = 2)]
         [Display(Name = "Name")]
         public string Name { get; set; }
@@ -22,6 +18,10 @@ namespace PL.Models
         [Display(Name = "Surname")]
         public string Surname { get; set; }
 
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
         
 
         [Required]

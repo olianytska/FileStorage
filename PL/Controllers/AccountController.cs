@@ -62,7 +62,7 @@ namespace PL.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        
         public async Task<ActionResult> Register(RegisterModel model)
         {
             await SetInitialDataAsync();
@@ -86,7 +86,7 @@ namespace PL.Controllers
                     Console.WriteLine("Not Ok");
                 }
             }
-            return View(model);
+            return Json("OK", JsonRequestBehavior.AllowGet);
         }
         private async Task SetInitialDataAsync()
         {

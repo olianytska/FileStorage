@@ -241,6 +241,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Angular2Readme-IMPORTANT.txt" />
     <Content Include="App_Data\FileStorage-v1.mdf" />
     <Content Include="App_Data\FileStorage-v1_log.ldf">
       <DependentUpon>FileStorage-v1.mdf</DependentUpon>
@@ -252,6 +253,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="index-JustForReference-DeleteIt.html" />
+    <Content Include="Scripts\App\app.component.html" />
     <Content Include="Scripts\App\app.component.js" />
     <Content Include="Scripts\App\app.module.js" />
     <Content Include="Scripts\App\main.js" />
@@ -260,17 +263,16 @@
     <Content Include="Scripts\App\main.js.map" />
     <Content Include="Scripts\App\app.module.js.map" />
     <Content Include="Scripts\App\app.component.js.map" />
+    <Content Include="Scripts\App\registration\registration.component.html" />
     <Content Include="package.json" />
-    <Content Include="src\app\registration\registration.component.html" />
-    <Content Include="webpack.config.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="systemjs.config.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -298,6 +300,8 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="typings.json" />
     <Content Include="tsconfig.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -317,11 +321,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <TypeScriptCompile Include="src\app\app.component.ts" />
-    <TypeScriptCompile Include="src\app\app.module.ts" />
-    <TypeScriptCompile Include="src\app\registration\registration.component.ts" />
-    <TypeScriptCompile Include="src\main.ts" />
-    <TypeScriptCompile Include="src\polyfills.ts" />
+    <TypeScriptCompile Include="Scripts\App\app.component.ts" />
+    <TypeScriptCompile Include="Scripts\App\app.module.ts" />
+    <TypeScriptCompile Include="Scripts\App\main.ts" />
+    <TypeScriptCompile Include="Scripts\App\registration\registration.component.ts" />
+    <TypeScriptCompile Include="Scripts\App\user\User.interface.ts" />
+    <TypeScriptCompile Include="Scripts\App\user\User.service.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -356,7 +361,8 @@
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <PropertyGroup>
-    <PreBuildEvent>npm run build</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
