@@ -17,7 +17,9 @@ namespace DAL
 
         private FileStorageUserManager userManager;
         private FileStorageRoleManager roleManager;
-        private IRepository<UserProfile> clientManager;
+        private IClientManager clientManager;
+        private IDirectoryManager directoryManager;
+        private IRepository<File> fileManager;
 
         public UnitOfWork(string connectionString)
         {
@@ -25,13 +27,19 @@ namespace DAL
             userManager = new FileStorageUserManager(new UserStore<User>(context));
             roleManager = new FileStorageRoleManager(new RoleStore<UserRole>(context));
             clientManager = new ClientManager(context);
+            directoryManager = new DirectoryManager(context);
+            fileManager = new Repository<File>(context);
         }
 
         public FileStorageUserManager UserManager => userManager;
 
-        public IRepository<UserProfile> ClientManager => clientManager;
+        public IClientManager ClientManager => clientManager;
 
         public FileStorageRoleManager RoleManager => roleManager;
+
+        public IDirectoryManager DirectoryManager => directoryManager;
+
+        public IRepository<File> FileManager => fileManager;
 
         public async Task SaveAsync()
         {

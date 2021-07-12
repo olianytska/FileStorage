@@ -5,13 +5,10 @@ using BLL.Interfaces;
 using DAL.Entities;
 using DAL.Interfaces;
 using Microsoft.AspNet.Identity;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
-using DAL.Identity;
 
 namespace BLL.Services
 {
@@ -44,7 +41,13 @@ namespace BLL.Services
                 var result = await unitOfWork.UserManager.CreateAsync(user, userDto.Password);
                 if (result.Errors.Count() > 0) return false;
                 await unitOfWork.UserManager.AddToRoleAsync(user.Id, userDto.Role);
-                UserProfile userProfile = new UserProfile { Id = user.Id, Name = userDto.UserName };
+                UserProfile userProfile = new UserProfile
+                {
+                    Id = user.Id,
+                    Email = userDto.Email,
+                    Name = userDto.Name,
+                    Surname = userDto.Surname
+                };
                 unitOfWork.ClientManager.Create(userProfile);
                 return true;
             }
@@ -67,6 +70,22 @@ namespace BLL.Services
         public void Dispose()
         {
             unitOfWork.Dispose();
+        }
+
+        public IEnumerable<UserDTO> GetAllItems()
+        {
+            //List<UserProfile> userProfiles = new List<UserProfile>();
+            List<UserDTO> userDTOs = new List<UserDTO>();
+            //foreach (UserProfile item in unitOfWork.ClientManager.GetAllItems())
+            //{
+            //    userProfiles.Add(item);
+            //}
+            foreach (var userProfile in unitOfWork.ClientManager.GetAllItems())
+            {
+                userDTOs.Add(mapper.Map<UserProfile, UserDTO>(userProfile));
+            }
+            //return mapper.Map<UserProfile, UserDTO>(unitOfWork.ClientManager.GetAllItems());
+            return userDTOs;
         }
     }
 }

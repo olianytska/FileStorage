@@ -7,8 +7,6 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
-using PL.App_Start;
-using System.Web.Optimization;
 
 namespace PL
 {
@@ -19,7 +17,7 @@ namespace PL
             // Код, выполняемый при запуске приложения
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);            
         }
     }
 }

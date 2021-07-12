@@ -22,7 +22,7 @@ namespace PL.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
-        
+
 
         [Required]
         [StringLength(100, ErrorMessage = "The value {0} must contain at least {2} characters.", MinimumLength = 6)]

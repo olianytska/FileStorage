@@ -12,7 +12,10 @@ namespace DAL.Interfaces
     {
         FileStorageUserManager UserManager { get; }
         FileStorageRoleManager RoleManager { get; }
-        IRepository<UserProfile> ClientManager { get; }
+        IClientManager ClientManager { get; }
+        IDirectoryManager DirectoryManager { get; }
+        IRepository<File> FileManager { get; }
+
         Task SaveAsync();
     }
 }

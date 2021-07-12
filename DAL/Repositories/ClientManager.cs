@@ -8,13 +8,18 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
-    public class ClientManager : IRepository<UserProfile>
+    public class ClientManager : IClientManager
     {
         private readonly FileStorageDbContext context;
         public ClientManager(FileStorageDbContext context)
         {
             this.context = context;
         }
+        public IQueryable<UserProfile> GetAllItems()
+        {
+            return context.UserProfiles;
+        }
+
         public void Create(UserProfile item)
         {
             context.UserProfiles.Add(item);
@@ -23,7 +28,12 @@ namespace DAL.Repositories
 
         public void Delete(UserProfile item)
         {
-            throw new NotImplementedException();
+            context.UserProfiles.Remove(item);
+            context.SaveChanges();
+        }
+        public UserProfile Find(string userName)
+        {
+            return context.UserProfiles.Where(x => x.User.UserName.ToString() == userName).FirstOrDefault();
         }
 
         public void Dispose()
@@ -33,7 +43,11 @@ namespace DAL.Repositories
 
         public void Update(UserProfile item)
         {
-            throw new NotImplementedException();
+            var i = context.UserProfiles.Find(item.Id);
+            context.Entry(i).CurrentValues.SetValues(item);
+            context.SaveChanges();
         }
+
+        
     }
 }

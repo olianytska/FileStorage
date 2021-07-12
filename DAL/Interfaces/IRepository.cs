@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-    public interface IRepository<T> : IDisposable
+    public interface IRepository<T> 
     {
         void Create(T item);
         void Delete(T item);
         void Update(T item);
+        IQueryable<T> GetAllItems();
     }
 }

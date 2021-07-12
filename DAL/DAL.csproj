@@ -74,6 +74,8 @@
     <Compile Include="EF\FileStorageDbContext.cs" />
     <Compile Include="Identity\FileStorageRoleManager.cs" />
     <Compile Include="Identity\FileStorageUserManager.cs" />
+    <Compile Include="Interfaces\IClientManager.cs" />
+    <Compile Include="Interfaces\IDirectoryManager.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Migrations\202107062022499_FileStorage-v1.cs" />
@@ -82,6 +84,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\ClientManager.cs" />
+    <Compile Include="Repositories\DirectoryManager.cs" />
+    <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

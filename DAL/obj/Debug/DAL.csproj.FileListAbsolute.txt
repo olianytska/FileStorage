@@ -20,9 +20,6 @@ C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\bin\Debug\EntityFramework.d
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\bin\Debug\EntityFramework.xml
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\obj\Debug\DAL.dll
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\obj\Debug\DAL.pdb
@@ -33,3 +30,4 @@ C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\bin\Debug\Microsoft.Owin.xm
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\obj\Debug\DAL.Migrations.FileStoragev1.resources
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\obj\Debug\DAL.csprojAssemblyReference.cache

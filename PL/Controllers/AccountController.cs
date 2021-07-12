@@ -1,104 +1,51 @@
 ﻿using BLL.DTO;
+using BLL.Interfaces;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PL.Models;
-using System.Collections.Generic;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using BLL.Interfaces;
-using System.Web;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Http;
 
 namespace PL.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : ApiController
     {
-        private IUserService UserService => HttpContext.GetOwinContext().GetUserManager<IUserService>();
 
-        private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
+        private IUserService UserService => HttpContext.Current.GetOwinContext().GetUserManager<IUserService>();
 
-        public ActionResult Login()
+        private IAuthenticationManager AuthenticationManager => HttpContext.Current.GetOwinContext().Authentication;
+
+        public HttpResponseMessage Get()
         {
-            return View();
+            //var res = new { key1 = "value1", key2 = "val2" };
+           // return Request.CreateResponse(HttpStatusCode.OK, res);
+            return Request.CreateResponse(HttpStatusCode.OK, UserService.GetAllItems());
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginModel model)
+        public async Task<string> CreateUser(RegisterModel model)
         {
-            await SetInitialDataAsync();
-            if (ModelState.IsValid)
-            {
-                UserDTO userDto = new UserDTO { Email = model.Email, Password = model.Password };
-                ClaimsIdentity claim = await UserService.Authenticate(userDto);
-                if (claim == null)
+                UserDTO userDTO = new UserDTO
                 {
-                    ModelState.AddModelError("", "Неверный логин или пароль.");
-                }
-                else
-                {
-                    AuthenticationManager.SignOut();
-                    AuthenticationManager.SignIn(new AuthenticationProperties
-                    {
-                        IsPersistent = true
-                    }, claim);
-                    if (userDto.Role == "user") return RedirectToAction("Index2", "Home");
-                    else if (userDto.Role == "admin") return RedirectToAction("Index", "Home");
-                }
-            }
-            return View(model);
-        }
-
-        public ActionResult Logout()
-        {
-            AuthenticationManager.SignOut();
-            return RedirectToAction("Index2", "Home");
-        }
-
-        public ActionResult Register()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        
-        public async Task<ActionResult> Register(RegisterModel model)
-        {
-            await SetInitialDataAsync();
-            if (ModelState.IsValid)
-            {
-                UserDTO userDto = new UserDTO
-                {
+                    Email = model.Email,
                     Name = model.Name,
                     Surname = model.Surname,
-                    Email = model.Email,
-                    UserName = model.Email,
                     Password = model.Password,
+                    UserName = model.Email,
                     Role = "user"
                 };
-                bool success = await UserService.Create(userDto);
-                if (success)
-                    Console.WriteLine("Ok");
-                else
-                {
-                    //ModelState.AddModelError(operationDetails.Property, operationDetails.Message);
-                    Console.WriteLine("Not Ok");
-                }
-            }
-            return Json("OK", JsonRequestBehavior.AllowGet);
+                bool success = await UserService.Create(userDTO);
+            if(success)
+                return "User was created!";
+            else
+                return "Fail to create user";  
         }
-        private async Task SetInitialDataAsync()
-        {
-            await UserService.SetInitialData(new UserDTO
-            {
-                Email = "olianytska@gmail.com",
-                Name = "Liza",
-                Surname = "Olianytska",
-                UserName = "olianytska@gmail.com",
-                Password = "123456",
-                Role = "admin",
-            }, new List<string> { "user", "admin" });
-        }
+
     }
 }
