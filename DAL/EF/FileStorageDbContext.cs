@@ -16,8 +16,6 @@ namespace DAL
         }
 
         public DbSet<UserProfile> UserProfiles { get; set; }
-        public DbSet<Directory> Directories { get; set; }
         public DbSet<File> Files { get; set; }
-        public DbSet<UserDirectory> UserDirectories { get; set; }
     }
 }

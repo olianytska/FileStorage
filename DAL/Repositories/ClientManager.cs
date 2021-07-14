@@ -15,11 +15,6 @@ namespace DAL.Repositories
         {
             this.context = context;
         }
-        public IQueryable<UserProfile> GetAllItems()
-        {
-            return context.UserProfiles;
-        }
-
         public void Create(UserProfile item)
         {
             context.UserProfiles.Add(item);
@@ -31,9 +26,23 @@ namespace DAL.Repositories
             context.UserProfiles.Remove(item);
             context.SaveChanges();
         }
+
+        public IEnumerable<UserProfile> GetAllItems()
+        {
+            return context.UserProfiles;
+        }
+
+        public void Update(UserProfile item)
+        {
+            var i = context.UserProfiles.Find(item);
+            context.Entry(i).CurrentValues.SetValues(item);
+            context.SaveChanges();
+        }
+
         public UserProfile Find(string userName)
         {
-            return context.UserProfiles.Where(x => x.User.UserName.ToString() == userName).FirstOrDefault();
+            return context.UserProfiles.FirstOrDefault(x => x.Email == userName);
+
         }
 
         public void Dispose()
@@ -41,13 +50,5 @@ namespace DAL.Repositories
             context.Dispose();
         }
 
-        public void Update(UserProfile item)
-        {
-            var i = context.UserProfiles.Find(item.Id);
-            context.Entry(i).CurrentValues.SetValues(item);
-            context.SaveChanges();
-        }
-
-        
     }
 }

@@ -9,6 +9,7 @@ namespace BLL.DTO
     public class FileDTO
     {
         public int Id { get; set; }
+        public string UserId { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
         public string Link { get; set; }
@@ -17,6 +18,6 @@ namespace BLL.DTO
         public bool IsPrivate { get; set; }
         public bool IsRemove { get; set; }
         public DateTime Created { get; set; }
-        public int DirectoryId { get; set; }
+        public string UserName { get; set; }
     }
 }

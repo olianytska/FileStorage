@@ -11,6 +11,6 @@ namespace DAL.Interfaces
         void Create(T item);
         void Delete(T item);
         void Update(T item);
-        IQueryable<T> GetAllItems();
+        IEnumerable<T> GetAllItems();
     }
 }

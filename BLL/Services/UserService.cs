@@ -5,6 +5,7 @@ using BLL.Interfaces;
 using DAL.Entities;
 using DAL.Interfaces;
 using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -49,6 +50,7 @@ namespace BLL.Services
                     Surname = userDto.Surname
                 };
                 unitOfWork.ClientManager.Create(userProfile);
+                await unitOfWork.SaveAsync();
                 return true;
             }
             else return false;
@@ -67,25 +69,42 @@ namespace BLL.Services
             }
             await Create(adminDto);
         }
-        public void Dispose()
-        {
-            unitOfWork.Dispose();
-        }
 
-        public IEnumerable<UserDTO> GetAllItems()
+        public async Task<IEnumerable<UserDTO>> GetAllItems()
         {
-            //List<UserProfile> userProfiles = new List<UserProfile>();
             List<UserDTO> userDTOs = new List<UserDTO>();
-            //foreach (UserProfile item in unitOfWork.ClientManager.GetAllItems())
-            //{
-            //    userProfiles.Add(item);
-            //}
-            foreach (var userProfile in unitOfWork.ClientManager.GetAllItems())
+            foreach (var userProfile in  unitOfWork.ClientManager.GetAllItems())
             {
                 userDTOs.Add(mapper.Map<UserProfile, UserDTO>(userProfile));
             }
-            //return mapper.Map<UserProfile, UserDTO>(unitOfWork.ClientManager.GetAllItems());
             return userDTOs;
+        }
+
+        public async Task Delete(UserDTO userDTO)
+        {
+            UserProfile user = new UserProfile();
+            mapper.Map<UserDTO, UserProfile>(userDTO);
+            await unitOfWork.SaveAsync();
+        }
+
+        private bool disposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    unitOfWork.Dispose();
+                }
+                disposed = true;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,9 @@ namespace DAL.Entities
         public bool IsPrivate { get; set; }
         public bool IsRemove { get; set; }
         public DateTime Created { get; set; }
-        public int DirectoryId { get; set; }
-        public Directory Directory { get; set; }
+
+        [ForeignKey("User")]
+        public string UserId { get; set; }
+        public User User { get; set; }
     }
 }

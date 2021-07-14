@@ -269,15 +269,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="angular\.gitignore" />
-    <Content Include="angular\karma.conf.js" />
-    <Content Include="angular\src\app\app.component.css" />
-    <Content Include="angular\src\app\app.component.html" />
-    <Content Include="angular\src\app\registration\registration.component.css" />
-    <Content Include="angular\src\app\registration\registration.component.html" />
-    <Content Include="angular\src\favicon.ico" />
-    <Content Include="angular\src\index.html" />
-    <Content Include="angular\src\styles.css" />
+    <Content Include="App_Data\FileStorage-v2.mdf" />
+    <Content Include="App_Data\FileStorage-v2_log.ldf">
+      <DependentUpon>FileStorage-v2.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -301,25 +296,17 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Account2Controller.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="angular\src\assets\.gitkeep" />
-    <Content Include="angular\.browserslistrc" />
-    <Content Include="angular\.editorconfig" />
-    <Content Include="angular\angular.json" />
-    <Content Include="angular\package-lock.json" />
-    <Content Include="angular\package.json" />
-    <Content Include="angular\README.md" />
-    <Content Include="angular\tsconfig.app.json" />
-    <Content Include="angular\tsconfig.json" />
-    <Content Include="angular\tsconfig.spec.json" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -342,7 +329,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
@@ -350,19 +336,6 @@
       <Project>{E4C198EA-4F4E-4C3A-B0CD-19D98C58D649}</Project>
       <Name>BLL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="angular\src\app\app-routing.module.ts" />
-    <TypeScriptCompile Include="angular\src\app\app.component.spec.ts" />
-    <TypeScriptCompile Include="angular\src\app\app.component.ts" />
-    <TypeScriptCompile Include="angular\src\app\app.module.ts" />
-    <TypeScriptCompile Include="angular\src\app\registration\registration.component.spec.ts" />
-    <TypeScriptCompile Include="angular\src\app\registration\registration.component.ts" />
-    <TypeScriptCompile Include="angular\src\environments\environment.prod.ts" />
-    <TypeScriptCompile Include="angular\src\environments\environment.ts" />
-    <TypeScriptCompile Include="angular\src\main.ts" />
-    <TypeScriptCompile Include="angular\src\polyfills.ts" />
-    <TypeScriptCompile Include="angular\src\test.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

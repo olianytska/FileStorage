@@ -1,3 +1,4 @@
+C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\PL\obj\Debug\PL.csprojAssemblyReference.cache
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\PL\bin\PL.dll.config
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\PL\bin\PL.dll
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\PL\bin\PL.pdb
@@ -176,7 +177,6 @@ C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\PL\bin\ru\System.Web.Mvc.resour
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\PL\bin\ru\System.Net.Http.Formatting.resources.dll
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\PL\bin\ru\System.Web.Http.resources.dll
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\PL\bin\ru\System.Web.Http.WebHost.resources.dll
-C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\PL\obj\Debug\PL.csprojAssemblyReference.cache
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\PL\obj\Debug\PL.csproj.CopyComplete
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\PL\obj\Debug\PL.dll
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\PL\obj\Debug\PL.pdb

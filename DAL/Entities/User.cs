@@ -9,7 +9,7 @@ namespace DAL.Entities
 {
     public class User : IdentityUser
     {
-        public IEnumerable<UserDirectory> UserDirectories { get; set; }
+        public IEnumerable<File> Files { get; set; }
         public UserProfile UserProfile { get; set; }
     }
 }

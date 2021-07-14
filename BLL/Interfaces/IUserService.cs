@@ -8,9 +8,14 @@ namespace BLL.Interfaces
 {
     public interface IUserService : IDisposable
     {
-        IEnumerable<UserDTO> GetAllItems();
+        Task<IEnumerable<UserDTO>> GetAllItems();
+
         Task<bool> Create(UserDTO userDto);
+
         Task<ClaimsIdentity> Authenticate(UserDTO userDto);
+
         Task SetInitialData(UserDTO adminDto, List<string> roles);
+
+        Task Delete(UserDTO userDTO);
     }
 }

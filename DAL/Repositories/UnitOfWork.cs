@@ -18,8 +18,7 @@ namespace DAL
         private FileStorageUserManager userManager;
         private FileStorageRoleManager roleManager;
         private IClientManager clientManager;
-        private IDirectoryManager directoryManager;
-        private IRepository<File> fileManager;
+        private IFileManager fileManager;
 
         public UnitOfWork(string connectionString)
         {
@@ -27,8 +26,7 @@ namespace DAL
             userManager = new FileStorageUserManager(new UserStore<User>(context));
             roleManager = new FileStorageRoleManager(new RoleStore<UserRole>(context));
             clientManager = new ClientManager(context);
-            directoryManager = new DirectoryManager(context);
-            fileManager = new Repository<File>(context);
+            fileManager = new FileManager(context);
         }
 
         public FileStorageUserManager UserManager => userManager;
@@ -37,9 +35,7 @@ namespace DAL
 
         public FileStorageRoleManager RoleManager => roleManager;
 
-        public IDirectoryManager DirectoryManager => directoryManager;
-
-        public IRepository<File> FileManager => fileManager;
+        public IFileManager FileManager => fileManager;
 
         public async Task SaveAsync()
         {
@@ -62,6 +58,7 @@ namespace DAL
                     userManager.Dispose();
                     roleManager.Dispose();
                     clientManager.Dispose();
+                    fileManager.Dispose();
                 }
                 this.disposed = true;
             }

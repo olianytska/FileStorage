@@ -65,27 +65,24 @@
   <ItemGroup>
     <Compile Include="EF\MigrationContextFactory.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
-    <Compile Include="Entities\Directory.cs" />
     <Compile Include="Entities\File.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Entities\UserDirectory.cs" />
     <Compile Include="Entities\UserProfile.cs" />
     <Compile Include="Entities\UserRole.cs" />
     <Compile Include="EF\FileStorageDbContext.cs" />
     <Compile Include="Identity\FileStorageRoleManager.cs" />
     <Compile Include="Identity\FileStorageUserManager.cs" />
     <Compile Include="Interfaces\IClientManager.cs" />
-    <Compile Include="Interfaces\IDirectoryManager.cs" />
+    <Compile Include="Interfaces\IFileManager.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Migrations\202107062022499_FileStorage-v1.cs" />
-    <Compile Include="Migrations\202107062022499_FileStorage-v1.Designer.cs">
-      <DependentUpon>202107062022499_FileStorage-v1.cs</DependentUpon>
+    <Compile Include="Migrations\202107121657571_FileStorage-v2.cs" />
+    <Compile Include="Migrations\202107121657571_FileStorage-v2.Designer.cs">
+      <DependentUpon>202107121657571_FileStorage-v2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\ClientManager.cs" />
-    <Compile Include="Repositories\DirectoryManager.cs" />
-    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\FileManager.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -94,8 +91,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202107062022499_FileStorage-v1.resx">
-      <DependentUpon>202107062022499_FileStorage-v1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107121657571_FileStorage-v2.resx">
+      <DependentUpon>202107121657571_FileStorage-v2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

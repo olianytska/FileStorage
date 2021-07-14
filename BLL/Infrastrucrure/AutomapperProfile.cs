@@ -18,23 +18,17 @@ namespace BLL.Infrastrucrure
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Email));
             //.ReverseMap();
 
-            CreateMap<Directory, DirectoryDTO>();
 
-            CreateMap<UserDirectory, DirectoryDTO>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.DirectoryId))
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Directory.Name))
-                .ForMember(dest => dest.Path, opt => opt.MapFrom(src => src.Directory.Path))
-                .ForMember(dest => dest.Size, opt => opt.MapFrom(src => src.Directory.Size))
-                .ForMember(dest => dest.Link, opt => opt.MapFrom(src => src.Directory.Size))
-                .ForMember(dest => dest.Created, opt => opt.MapFrom(src => src.Directory.Created))
-                .ForMember(dest => dest.IsPrivate, opt => opt.MapFrom(src => src.Directory.IsPrivate))
-                .ForMember(dest => dest.IsRemove, opt => opt.MapFrom(src => src.Directory.IsRemove))
-                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.UserName));
+            CreateMap<UserProfile, UserDTO>()
+            .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Email));
 
+            CreateMap<UserDTO, UserProfile>();
+                //.ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+                //.ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
+                //.ForMember(dest => dest.Surname, opt => opt.MapFrom(src => src.Surname));
+                ////.ForMember(dest => dest.User, opt => opt.MapFrom(src => src.Select(x => x.U));
 
-            CreateMap<UserProfile, UserDTO>();
-                //.ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.UserName));
-
+            CreateMap<File, FileDTO>();
         }
     }
 }

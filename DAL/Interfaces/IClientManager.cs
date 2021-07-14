@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-    public interface IClientManager : IDisposable, IRepository<UserProfile>
+    public interface IClientManager : IRepository<UserProfile>, IDisposable
     {
         UserProfile Find(string userName);
     }
