@@ -45,10 +45,26 @@ namespace DAL.Repositories
 
         }
 
+        public void Ban(UserProfile user)
+        {
+            user.IsBaned = true;
+            context.SaveChanges();
+        }
+
+        public void RemoveFromBan(UserProfile user)
+        {
+            user.IsBaned = false;
+            context.SaveChanges();
+        }
+
         public void Dispose()
         {
             context.Dispose();
         }
 
+        public User FindById(string userId)
+        {
+            return context.Users.FirstOrDefault(x => x.Id == userId);
+        }
     }
 }

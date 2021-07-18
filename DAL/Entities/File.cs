@@ -17,8 +17,6 @@ namespace DAL.Entities
         public bool IsPrivate { get; set; }
         public bool IsRemove { get; set; }
         public DateTime Created { get; set; }
-
-        [ForeignKey("User")]
         public string UserId { get; set; }
         public User User { get; set; }
     }

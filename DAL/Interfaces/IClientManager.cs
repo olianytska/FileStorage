@@ -10,5 +10,9 @@ namespace DAL.Interfaces
     public interface IClientManager : IRepository<UserProfile>, IDisposable
     {
         UserProfile Find(string userName);
+        User FindById(string userId);
+        void Ban(UserProfile user);
+        void RemoveFromBan(UserProfile user);
+
     }
 }

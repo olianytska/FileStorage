@@ -29,6 +29,8 @@ namespace BLL.Infrastrucrure
                 ////.ForMember(dest => dest.User, opt => opt.MapFrom(src => src.Select(x => x.U));
 
             CreateMap<File, FileDTO>();
+
+            CreateMap<FileDTO, File>();
         }
     }
 }

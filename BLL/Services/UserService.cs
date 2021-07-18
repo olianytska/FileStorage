@@ -23,6 +23,7 @@ namespace BLL.Services
             var config = new MapperConfiguration(x => x.AddProfile(new AutomapperProfile()));
             mapper = new Mapper(config);
         }
+
         public async Task<ClaimsIdentity> Authenticate(UserDTO userDto)
         {
             ClaimsIdentity claim = null;
@@ -84,6 +85,24 @@ namespace BLL.Services
         {
             UserProfile user = new UserProfile();
             mapper.Map<UserDTO, UserProfile>(userDTO);
+            await unitOfWork.SaveAsync();
+        }
+
+        public async Task Ban(UserDTO userDTO)
+        {
+
+            UserProfile user = new UserProfile();
+            user = mapper.Map<UserDTO, UserProfile>(userDTO);
+            unitOfWork.ClientManager.Ban(user);
+            await unitOfWork.SaveAsync();
+        }
+
+        public async Task RemoveFromBan(UserDTO userDTO)
+        {
+
+            UserProfile user = new UserProfile();
+            user = mapper.Map<UserDTO, UserProfile>(userDTO);
+            unitOfWork.ClientManager.RemoveFromBan(user);
             await unitOfWork.SaveAsync();
         }
 

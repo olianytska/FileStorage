@@ -1,13 +1,13 @@
-﻿@using PL.Models
-@model LoginModel
+﻿@model PL.Models.LoginModel
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "Index";
 }
+
 <div class="action-panel">
     <div class="page-title">Login to use the file storage</div>
 </div>
 <section id="loginForm">
-    @using (Html.BeginForm("Login", "Account2", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -30,7 +30,8 @@
             <input type="submit" value="LOGIN" class="btn-login" />
         </div>
         <p class="manage-link">
-            @Html.ActionLink("No account? Register", "Register")
+            @Html.ActionLink("No account? Register", "Index", "Register")
         </p>
     }
 </section>
+

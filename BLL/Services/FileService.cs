@@ -25,14 +25,9 @@ namespace BLL.Services
 
         public async Task AddFile(FileDTO item)
         {
-            if (!await IsFileExist(item.Name, item.UserId))
-            {
-                item.Created = DateTime.Now;
-                item.Link = Guid.NewGuid().ToString().Substring(2, 10);
-
-                unitOfWork.FileManager.Create(mapper.Map<File>(item));
-                await unitOfWork.SaveAsync();
-            }
+            File file = new File();
+            unitOfWork.FileManager.Create(mapper.Map<FileDTO, File>(item));
+            await unitOfWork.SaveAsync(); 
         }
 
         public async Task AddFileToTrash(string userId, string fileName)
@@ -48,6 +43,7 @@ namespace BLL.Services
             File file =  unitOfWork.FileManager.Find(userId, fileName);
             if (file == null) throw new FileStorageException();
             file.IsPrivate = true;
+            file.Link = null;
             await unitOfWork.SaveAsync();
         }
 
@@ -92,6 +88,7 @@ namespace BLL.Services
             File file =  unitOfWork.FileManager.Find(userId, fileName);
             if (file == null) throw new FileStorageException();
             file.IsPrivate = false;
+            file.Link = Guid.NewGuid().ToString().Substring(2, 10);
             await unitOfWork.SaveAsync();
         }
 
@@ -109,13 +106,13 @@ namespace BLL.Services
             await unitOfWork.SaveAsync();
         }
 
-        public async Task<IEnumerable<FileDTO>> SearchFiles(string userId, string search)
+        public async Task<IEnumerable<FileDTO>> GetFileByUserName(string userName)
         {
             List<FileDTO> fileDTOs = new List<FileDTO>();
-            foreach (var file in  unitOfWork.FileManager.GetAllItems())
+            foreach (var file in unitOfWork.FileManager.GetAllItems())
             {
-                if(!file.IsRemove && file.Name.ToLower().Contains(search.ToLower()))
-                fileDTOs.Add(mapper.Map<File, FileDTO>(file));
+                if (file.User.UserName == userName)
+                    fileDTOs.Add(mapper.Map<File, FileDTO>(file));
             }
             return fileDTOs;
         }
@@ -140,15 +137,6 @@ namespace BLL.Services
             GC.SuppressFinalize(this);
         }
 
-        public async Task<IEnumerable<FileDTO>> GetFileByUserName(string userName)
-        {
-            List<FileDTO> fileDTOs = new List<FileDTO>();
-            foreach (var file in  unitOfWork.FileManager.GetAllItems())
-            {
-                if(file.User.UserName == userName)
-                    fileDTOs.Add(mapper.Map<File, FileDTO>(file));
-            }
-            return fileDTOs;
-        }
+        
     }
 }

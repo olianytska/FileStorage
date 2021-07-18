@@ -3,14 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegistrationComponent } from './account/registration/registration.component';
 import { LoginComponent } from './account/login/login.component';
 import { AccountComponent } from './account/account.component';
 import { ShowAccComponent } from './account/show-acc/show-acc.component';
 import {SharedService} from './shared.service';
-
+import { RegistrationComponent } from './account/registration/registration.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     RegistrationComponent,
     LoginComponent,
     AccountComponent,
-    ShowAccComponent
+    ShowAccComponent,
+    FileUploadComponent,
+    
   ],
   imports: [
     BrowserModule,

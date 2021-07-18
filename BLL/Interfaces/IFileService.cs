@@ -13,8 +13,6 @@ namespace BLL.Interfaces
 
         Task<IEnumerable<FileDTO>> GetTrashFiles(string userId);
 
-        Task<IEnumerable<FileDTO>> SearchFiles(string userId, string search);
-
         Task<FileDTO> GetFileByName(string fileName, string userId);
 
         Task<IEnumerable<FileDTO>> GetFileByUserName(string userName);

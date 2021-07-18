@@ -17,5 +17,8 @@ namespace BLL.Interfaces
         Task SetInitialData(UserDTO adminDto, List<string> roles);
 
         Task Delete(UserDTO userDTO);
+
+        Task Ban(UserDTO userDTO);
+        Task RemoveFromBan(UserDTO userDTO);
     }
 }
