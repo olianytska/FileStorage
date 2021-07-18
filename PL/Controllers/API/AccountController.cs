@@ -30,6 +30,14 @@ namespace PL.Controllers
         {
             return Request.CreateResponse(HttpStatusCode.OK, UserService.GetAllItems().Result);
         }
+        [Route("api/account/logout")]
+        [HttpPost]
+        public string Logout()
+        {
+            AuthenticationManager.SignOut();
+            return "You logout";
+        }
+
 
         [HttpPost]
         public async Task<string> CreateUser([FromBody] RegisterModel model)
@@ -92,7 +100,7 @@ namespace PL.Controllers
             }, new List<string> { "user", "admin" });
         }
 
-        [Route("api/account/ban/{id}")]
+        [Route("api/account/ban")]
         [Authorize(Roles = "admin")]
         [HttpPut]
         public async Task<string> BanUser(string id)
@@ -108,7 +116,7 @@ namespace PL.Controllers
             return "User not found";
         }
 
-        [Route("api/account/removefromban/{id}")]
+        [Route("api/account/unban")]
         [Authorize(Roles = "admin")]
         [HttpPut]
         public async Task<string> RemoveFromBan(string id)

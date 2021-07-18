@@ -47,7 +47,7 @@ namespace PL.Controllers
                     IsPersistent = true
                 }, claim);
                 if (success)
-                    return RedirectToAction("Upload", "UploadFile");
+                    return RedirectToAction("Index", "UploadFile");
                 else
                     return RedirectToAction("Index", "Error");
             }

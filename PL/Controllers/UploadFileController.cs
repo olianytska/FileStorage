@@ -23,12 +23,11 @@ namespace PL.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Upload(HttpPostedFileBase file)
+        public async Task<ActionResult> Index(HttpPostedFileBase file)
         {
             try
             {
-                if (file.ContentLength > 0)
-                {
+                
                     string fileName = Path.GetFileName(file.FileName);
                     string path = Path.Combine(Server.MapPath("~/UploadedFiles"), fileName);
                     FileDTO fileDTO = new FileDTO()
@@ -46,9 +45,9 @@ namespace PL.Controllers
                     };
                     await FileService.AddFile(fileDTO);
                     // file.SaveAs(path);
-                }
+                
                 ViewBag.Message = "File Uploaded Successfully!!";
-                return View();
+                return View(fileDTO);
             }
             catch (Exception)
             {

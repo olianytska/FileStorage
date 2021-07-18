@@ -34,30 +34,7 @@ namespace PL.Controllers.API
             return Request.CreateResponse(HttpStatusCode.NotFound);
         }
 
-        [Authorize(Roles = "admin")]
-        [Route("api/ManageFiles/allfiles")]
-        [HttpGet]
-        public async Task<HttpResponseMessage> GetFiles()
-        {
-            return Request.CreateResponse(HttpStatusCode.OK, await FileService.GetAllFiles());
-        }
-
-        [Authorize(Roles = "admin")]
-        [Route("api/ManageFiles/files/{fileName}")]
-        [HttpGet]
-        public async Task<HttpResponseMessage> GetFile(string fileName)
-        {
-            foreach (var file in await FileService.GetAllFiles())
-            {
-                if (file.Name == fileName)
-                {
-                    return Request.CreateResponse(HttpStatusCode.OK, file);
-                }
-            }
-            return Request.CreateResponse(HttpStatusCode.NotFound);
-        }
-
-        [Authorize(Roles = "user")]
+        [Authorize(Roles = "user, admin")]
         [Route("api/ManageFiles/files/addFileToTrash")]
         [HttpPut]
         public async Task<HttpResponseMessage> AddFileToTrash([FromBody] FileModel fileModel)
@@ -73,7 +50,7 @@ namespace PL.Controllers.API
             }    
         }
 
-        [Authorize(Roles = "user")]
+        [Authorize(Roles = "user, admin")]
         [Route("api/ManageFiles/files/RestoreFileFromTrash")]
         [HttpPut]
         public async Task<HttpResponseMessage> RestoreFileFromTrash([FromBody] FileModel fileModel)
@@ -89,7 +66,7 @@ namespace PL.Controllers.API
             }
         }
 
-        [Authorize(Roles = "user")]
+        [Authorize(Roles = "user, admin")]
         [Route("api/ManageFiles/files/Delete")]
         [HttpDelete]
         public async Task<HttpResponseMessage> Delete([FromBody] FileModel fileModel)
@@ -105,7 +82,7 @@ namespace PL.Controllers.API
             }
         }
 
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "user, admin")]
         [Route("api/ManageFiles/files/DoFilePrivate")]
         [HttpPut]
         public async Task<HttpResponseMessage> DoFilePrivate([FromBody] FileModel fileModel)
@@ -121,7 +98,7 @@ namespace PL.Controllers.API
             }
         }
 
-        [Authorize(Roles = "user")]
+        [Authorize(Roles = "user, admin")]
         [Route("api/ManageFiles/files/RemoveFileFromPrivate")]
         [HttpPut]
         public async Task<HttpResponseMessage> RemoveFileFromPrivate([FromBody] FileModel fileModel)

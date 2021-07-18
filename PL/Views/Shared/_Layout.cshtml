@@ -17,10 +17,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("File Storage", "Index", "Login", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("File Storage", "Index", "UploadFile", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>
+                        @Html.ActionLink("Sign up", "Index", "Register")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Sign in", "Index", "Login")
+                    </li>
                 </ul>
             </div>
         </div>

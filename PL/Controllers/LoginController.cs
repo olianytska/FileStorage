@@ -45,7 +45,7 @@ namespace PL.Controllers
                     {
                         IsPersistent = true
                     }, claim);
-                    //return RedirectToAction("Upload", "Home2");
+                    return RedirectToAction("Index", "UploadFile");
                 }
             }
             return View(model);
@@ -54,7 +54,7 @@ namespace PL.Controllers
         public ActionResult Logout()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Upload", "UploadFile");
+            return RedirectToAction("Index", "UploadFile");
         }
 
     }
