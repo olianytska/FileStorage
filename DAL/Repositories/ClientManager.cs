@@ -2,6 +2,7 @@
 using DAL.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,8 +35,8 @@ namespace DAL.Repositories
 
         public void Update(UserProfile item)
         {
-            var i = context.UserProfiles.Find(item);
-            context.Entry(i).CurrentValues.SetValues(item);
+            var i = context.UserProfiles.First(x => x.Id == item.Id);
+            context.Entry(i).State = EntityState.Modified;
             context.SaveChanges();
         }
 
@@ -47,13 +48,15 @@ namespace DAL.Repositories
 
         public void Ban(UserProfile user)
         {
-            user.IsBaned = true;
+            var i = context.UserProfiles.First(x => x.Id == user.Id);
+            i.IsBaned = 1;
             context.SaveChanges();
         }
 
         public void RemoveFromBan(UserProfile user)
         {
-            user.IsBaned = false;
+            var i = context.UserProfiles.First(x => x.Id == user.Id);
+            i.IsBaned = 0;
             context.SaveChanges();
         }
 

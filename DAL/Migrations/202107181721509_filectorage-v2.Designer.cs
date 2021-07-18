@@ -7,13 +7,13 @@ namespace DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.2-31219")]
-    public sealed partial class filestorage : IMigrationMetadata
+    public sealed partial class filectoragev2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(filestorage));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(filectoragev2));
         
         string IMigrationMetadata.Id
         {
-            get { return "202107181239583_filestorage"; }
+            get { return "202107181721509_filectorage-v2"; }
         }
         
         string IMigrationMetadata.Source

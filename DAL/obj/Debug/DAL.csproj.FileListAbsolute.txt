@@ -29,5 +29,5 @@ C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\bin\Debug\Owin.dll
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\bin\Debug\Microsoft.Owin.xml
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
-C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\obj\Debug\DAL.Migrations.filestorage.resources
+C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\obj\Debug\DAL.Migrations.filectoragev2.resources
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\DAL\obj\Debug\DAL.csproj.GenerateResource.cache

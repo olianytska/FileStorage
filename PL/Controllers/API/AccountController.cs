@@ -50,7 +50,7 @@ namespace PL.Controllers
                 Surname = model.Surname,
                 Password = model.Password,
                 UserName = model.Email,
-                IsBaned = false,
+                IsBaned = 0,
                 Role = "user"
             };
             bool success = await UserService.Create(userDTO);
@@ -73,7 +73,7 @@ namespace PL.Controllers
         {
             foreach(var user in await UserService.GetAllItems())
             {
-                if (user.IsBaned == true && user.Email == model.Email && user.Password == model.Password) return "User is baned!";
+                if (user.IsBaned == 0 && user.Email == model.Email && user.Password == model.Password) return "User is baned!";
             }
             await SetInitialDataAsync();
             ClaimsIdentity claim = await UserService.Authenticate(new UserDTO { Email = model.Email, Password = model.Password });

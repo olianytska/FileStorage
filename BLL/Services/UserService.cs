@@ -48,7 +48,8 @@ namespace BLL.Services
                     Id = user.Id,
                     Email = userDto.Email,
                     Name = userDto.Name,
-                    Surname = userDto.Surname
+                    Surname = userDto.Surname,
+                    IsBaned = 0
                 };
                 unitOfWork.ClientManager.Create(userProfile);
                 await unitOfWork.SaveAsync();
@@ -84,16 +85,17 @@ namespace BLL.Services
         public async Task Delete(UserDTO userDTO)
         {
             UserProfile user = new UserProfile();
-            mapper.Map<UserDTO, UserProfile>(userDTO);
+            user = mapper.Map<UserDTO, UserProfile>(userDTO);
+            unitOfWork.ClientManager.Delete(user);
             await unitOfWork.SaveAsync();
         }
 
         public async Task Ban(UserDTO userDTO)
         {
 
-            UserProfile user = new UserProfile();
-            user = mapper.Map<UserDTO, UserProfile>(userDTO);
-            unitOfWork.ClientManager.Ban(user);
+            //UserProfile user = new UserProfile();
+            //user = mapper.Map<UserDTO, UserProfile>(userDTO);
+            unitOfWork.ClientManager.Ban(mapper.Map<UserDTO, UserProfile>(userDTO));
             await unitOfWork.SaveAsync();
         }
 

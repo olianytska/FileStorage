@@ -3,7 +3,7 @@ namespace DAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class filestorage : DbMigration
+    public partial class filectoragev2 : DbMigration
     {
         public override void Up()
         {
@@ -92,7 +92,7 @@ namespace DAL.Migrations
                         Name = c.String(),
                         Surname = c.String(),
                         Email = c.String(),
-                        IsBaned = c.Boolean(nullable: false),
+                        IsBaned = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.Id)

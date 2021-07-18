@@ -16,7 +16,7 @@ namespace DAL.Entities
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
-        public bool IsBaned { get; set; }
+        public int IsBaned { get; set; }
         public User User { get; set; }
     }
 }

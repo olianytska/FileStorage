@@ -33,3 +33,4 @@ C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\BLL\bin\Debug\System.Runtime.Co
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\BLL\obj\Debug\BLL.dll
 C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\BLL\obj\Debug\BLL.pdb
+C:\Users\Liza\Desktop\EPAM\Interview\FileStorage\BLL\obj\Debug\BLL.csprojAssemblyReference.cache

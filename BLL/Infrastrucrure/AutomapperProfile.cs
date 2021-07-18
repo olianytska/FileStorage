@@ -20,9 +20,11 @@ namespace BLL.Infrastrucrure
 
 
             CreateMap<UserProfile, UserDTO>()
-            .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Email));
+            .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Email))
+            .ForMember(dest => dest.IsBaned, opt => opt.MapFrom(src => src.IsBaned));
 
-            CreateMap<UserDTO, UserProfile>();
+            CreateMap<UserDTO, UserProfile>()
+                .ForMember(dest => dest.IsBaned, opt => opt.MapFrom(src => src.IsBaned));
                 //.ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 //.ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 //.ForMember(dest => dest.Surname, opt => opt.MapFrom(src => src.Surname));
